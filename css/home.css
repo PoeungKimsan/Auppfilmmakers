@@ -39,7 +39,7 @@ body {
       hsla(240, 6%, 87%, 0.752) 4%,
       #213a80 68%,
       #002868 100%),
-    url("/media/photography/photograph-background-img.png");
+    url("../media/photography/photograph-background-img.png");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: 100% auto;

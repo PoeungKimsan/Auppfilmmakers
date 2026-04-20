@@ -38,7 +38,7 @@ a {
       rgba(167, 188, 251, 0.96) 40%,
       rgb(20, 96, 219) 68%,
       #002868 100%),
-    url("/media/photography/photograph-background-img.png");
+    url("../media/photography/photograph-background-img.png");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: 100% auto;

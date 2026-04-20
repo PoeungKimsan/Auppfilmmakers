@@ -36,7 +36,7 @@ a {
       rgba(39, 65, 137, 0.88) 50%,
       rgba(18, 39, 101, 0.96) 100%
     ),
-    url("/media/contact-us.png");
+    url("../media/contact-us.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

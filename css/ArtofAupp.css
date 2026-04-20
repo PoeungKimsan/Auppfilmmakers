@@ -33,7 +33,7 @@ body {
       rgba(120, 0, 0, 0.6) 60%,
       #680002 100%
     ),
-    url("/media/art-of-aupp/art-of-aupp-background-img.png");
+    url("../media/art-of-aupp/art-of-aupp-background-img.png");
 
   background-repeat: no-repeat;
   background-position: center top;
