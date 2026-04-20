@@ -8,12 +8,17 @@
       const basePath = path.endsWith("/index.html")
         ? path.replace(/index\.html$/, "")
         : (path.endsWith("/") ? path : `${path}/`);
-      window.location.replace(`${basePath}home.html`);
+      const homePath = `${basePath}home.html`;
+      document.addEventListener("DOMContentLoaded", function () {
+        const fallbackLink = document.getElementById("fallback-home-link");
+        if (fallbackLink) fallbackLink.href = homePath;
+      });
+      window.location.replace(homePath);
     })();
   </script>
   <title>Redirecting...</title>
 </head>
 <body>
-  If you are not redirected, <a href="./home.html">click here</a>.
+  If you are not redirected, <a id="fallback-home-link" href="home.html">click here</a>.
 </body>
 </html>
