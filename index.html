@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <script>
     (function () {
-      const path = window.location.pathname;
+      const path = window.location.pathname || "/";
       const lastSegment = path.substring(path.lastIndexOf("/") + 1);
       const isDirectoryPath = path.endsWith("/") || !lastSegment.includes(".");
       const basePath = isDirectoryPath ? `${path.replace(/\/$/, "")}/` : path.substring(0, path.lastIndexOf("/") + 1);
