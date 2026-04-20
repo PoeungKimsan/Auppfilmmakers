@@ -10,17 +10,21 @@
     (function () {
       const path = window.location.pathname;
       let basePath;
-      if (path.endsWith("/index.html")) {
-        basePath = path.replace(/index\.html$/, "");
-      } else if (path.endsWith("/")) {
+      if (path.endsWith("/")) {
         basePath = path;
       } else {
-        basePath = `${path}/`;
+        const lastSlashIndex = path.lastIndexOf("/");
+        const lastSegment = path.substring(lastSlashIndex + 1);
+        if (lastSegment.includes(".")) {
+          basePath = path.substring(0, lastSlashIndex + 1);
+        } else {
+          basePath = `${path}/`;
+        }
       }
 
       const homePath = `${basePath}home.html`;
       const fallbackLink = document.getElementById("fallback-home-link");
-      if (fallbackLink) fallbackLink.href = homePath;
+      fallbackLink.href = homePath;
       window.location.replace(homePath);
     })();
   </script>
