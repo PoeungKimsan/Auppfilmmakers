@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=home.html">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      const lastSegment = path.substring(path.lastIndexOf("/") + 1);
+      const isDirectoryPath = path.endsWith("/") || !lastSegment.includes(".");
+      const basePath = isDirectoryPath ? `${path.replace(/\/$/, "")}/` : path.substring(0, path.lastIndexOf("/") + 1);
+      window.location.replace(`${basePath}home.html`);
+    })();
+  </script>
   <title>Redirecting...</title>
 </head>
 <body>
-  If you are not redirected, <a href="home.html">click here</a>.
+  If you are not redirected, <a href="./home.html">click here</a>.
 </body>
 </html>
