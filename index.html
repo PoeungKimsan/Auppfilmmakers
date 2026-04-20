@@ -20,9 +20,7 @@
       const homePath = `${basePath}home.html`;
       const fallbackLink = document.getElementById("fallback-home-link");
       fallbackLink.href = homePath;
-      setTimeout(function () {
-        window.location.replace(homePath);
-      }, 50);
+      window.location.replace(homePath);
     })();
   </script>
 </body>
