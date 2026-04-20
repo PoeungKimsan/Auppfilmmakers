@@ -41,7 +41,7 @@ a {
       rgba(33, 58, 128, 0.7) 55%,     /* your blue tone */
       #213a80 100%                    /* solid base */
     ),
-    url("/media/video-production-background-img.png");
+    url("../media/video-production-background-img.png");
 
   background-repeat: no-repeat;
   background-position: center top;
