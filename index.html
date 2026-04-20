@@ -4,10 +4,9 @@
   <meta charset="UTF-8">
   <script>
     (function () {
-      const path = window.location.pathname || "/";
-      const indexFile = "index.html";
-      const basePath = path.endsWith(`/${indexFile}`)
-        ? path.slice(0, -indexFile.length)
+      const path = window.location.pathname;
+      const basePath = path.endsWith("/index.html")
+        ? path.replace(/index\.html$/, "")
         : (path.endsWith("/") ? path : `${path}/`);
       window.location.replace(`${basePath}home.html`);
     })();
