@@ -5,9 +5,10 @@
   <script>
     (function () {
       const path = window.location.pathname || "/";
-      const lastSegment = path.substring(path.lastIndexOf("/") + 1);
-      const isDirectoryPath = path.endsWith("/") || !lastSegment.includes(".");
-      const basePath = isDirectoryPath ? `${path.replace(/\/$/, "")}/` : path.substring(0, path.lastIndexOf("/") + 1);
+      const indexFile = "index.html";
+      const basePath = path.endsWith(`/${indexFile}`)
+        ? path.slice(0, -indexFile.length)
+        : (path.endsWith("/") ? path : `${path}/`);
       window.location.replace(`${basePath}home.html`);
     })();
   </script>
