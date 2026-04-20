@@ -2,23 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <script>
-    (function () {
-      const path = window.location.pathname;
-      const basePath = path.endsWith("/index.html")
-        ? path.replace(/index\.html$/, "")
-        : (path.endsWith("/") ? path : `${path}/`);
-      const homePath = `${basePath}home.html`;
-      document.addEventListener("DOMContentLoaded", function () {
-        const fallbackLink = document.getElementById("fallback-home-link");
-        if (fallbackLink) fallbackLink.href = homePath;
-      });
-      window.location.replace(homePath);
-    })();
-  </script>
   <title>Redirecting...</title>
 </head>
 <body>
   If you are not redirected, <a id="fallback-home-link" href="home.html">click here</a>.
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let basePath;
+      if (path.endsWith("/index.html")) {
+        basePath = path.replace(/index\.html$/, "");
+      } else if (path.endsWith("/")) {
+        basePath = path;
+      } else {
+        basePath = `${path}/`;
+      }
+
+      const homePath = `${basePath}home.html`;
+      const fallbackLink = document.getElementById("fallback-home-link");
+      if (fallbackLink) fallbackLink.href = homePath;
+      window.location.replace(homePath);
+    })();
+  </script>
 </body>
 </html>
