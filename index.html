@@ -8,24 +8,21 @@
   If you are not redirected, <a id="fallback-home-link" href="home.html">go to the home page</a>.
   <script>
     (function () {
-      const path = window.location.pathname;
-      let basePath;
-      if (path.endsWith("/")) {
-        basePath = path;
-      } else {
-        const lastSlashIndex = path.lastIndexOf("/");
-        const lastSegment = path.substring(lastSlashIndex + 1);
-        if (lastSegment.includes(".")) {
-          basePath = path.substring(0, lastSlashIndex + 1);
-        } else {
-          basePath = `${path}/`;
-        }
+      const { href, pathname } = window.location;
+      let normalizedHref = href;
+      if (pathname.endsWith("/index.html")) {
+        normalizedHref = href.replace(/index\.html(?:[?#].*)?$/, "");
+      } else if (!pathname.endsWith("/")) {
+        normalizedHref = `${href}/`;
       }
 
+      const basePath = new URL(".", normalizedHref).pathname;
       const homePath = `${basePath}home.html`;
       const fallbackLink = document.getElementById("fallback-home-link");
       fallbackLink.href = homePath;
-      window.location.replace(homePath);
+      setTimeout(function () {
+        window.location.replace(homePath);
+      }, 50);
     })();
   </script>
 </body>
